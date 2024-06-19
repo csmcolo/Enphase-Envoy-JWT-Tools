@@ -5,18 +5,20 @@
 
 #A JWT specifict to your Envoy's serial number is required to make local API calls 
 #to gather usage and performance data. 
-#
+
 #You need to have a working log-in for https://enlighten.enphaseenergy.com for this 
 #to work. I am uncertain if it needs to be an 'installer' login or not, its been a few
 #years since I did this. YMMV
-#
+
 #As the JWT is required and expires in 1 year you need to run it at least that often
 #to ensure anything you are doing that uses it continues to function. 
-#
+
 #The process requires that you first log in to https://enlighten.enphaseenergy.com to get a 
 #session ID and then use that along with the serial number of your envoy to generate the JWT. 
-#
-#This script also verifies the new JWT, including 
+
+#This script also verifies the new JWT by making an API query with it and sending the resulting 
+#output along with the created date, expiration date and the JWT fingerprint via email so that you can
+#be sure it worked if you are running it via cron.
 
 #VARIABLES
 now=`date +%m-%d-%y-%H_%M_%S`
