@@ -7,6 +7,12 @@
 #(in Unix Epoch Time) which you can convert with an online tool or with my epoch_covert.sh script that is available
 #at https://github.com/csmcolo/Enphase-Envoy-JWT-Tools. 
 
+###############################################################################
+# Requires jq which can be installed on Ubuntu with sudo apt install jq       #
+# For other systems please refer to https://jqlang.github.io/jq/ for guidance #
+###############################################################################
+
+
 if [ -z "$1" ]; then
         echo 'Description: Decodes Java Web Token (jwt) to show human readable data.'
         echo 'Usage: jwt_convert.sh  <filename of jwt token>'
