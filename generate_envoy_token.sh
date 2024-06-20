@@ -7,8 +7,10 @@
 #to gather usage and performance data. 
 
 #You need to have a working log-in for https://enlighten.enphaseenergy.com for this 
-#to work. I am uncertain if it needs to be an 'installer' login or not, its been a few
-#years since I did this. YMMV
+#to work and the enphase_user and enphase_password variables are the login credentials
+#for that site. I am uncertain if it needs to be an 'installer' login or not, its been a few
+#years since I did this. I believe if your current login doesn't work, you can open a
+#call/tickt with Enphase and ask them to change your account to a type that has access. YMMV
 
 #As the JWT is required and expires in 1 year you need to run it at least that often
 #to ensure anything you are doing that uses it continues to function. 
@@ -16,9 +18,10 @@
 #The process requires that you first log in to https://enlighten.enphaseenergy.com to get a 
 #session ID and then use that along with the serial number of your envoy to generate the JWT. 
 
-#This script also verifies the new JWT by making an API query with it and sending the resulting 
-#output along with the created date, expiration date and the JWT fingerprint via email so that you can
-#be sure it worked if you are running it via cron.
+#This script also verifies the new JWT by making an API query and validating the output. If the 
+#validation fails it sends a failure email. If it does succed it sends the resulting API
+#output along with the JWT created date, expiration date and fingerprint via email so that you can
+#be sure it worked if you are running it via cron. 
 
 #VARIABLES
 now=`date +%m-%d-%y-%H_%M_%S`
