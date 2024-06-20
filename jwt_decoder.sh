@@ -13,12 +13,41 @@
 ###############################################################################
 
 
+#!/bin/bash
+
+now=`date +%m-%d-%y-%H_%M_%S`
+working_path='' #path where all the temp files are saved during execution
+
 if [ -z "$1" ]; then
         echo 'Description: Decodes Java Web Token (jwt) to show human readable data.'
         echo 'Usage: jwt_convert.sh  <filename of jwt token>'
         exit 1
 else
+cat $1 | tr "." "\n" |base64 -d 2> /dev/null | jq -r 2> /dev/null > $working_path/temp_token.$now
 
-        cat $1 | tr "." "\n" |base64 -d 2> /dev/null | jq 2> /dev/null
+
+#Parse decoded JWT for times
+
+generationTime=`cat $working_path/temp_token.$now | grep iat | cut -d: -f2 | sed 's/,//g'`
+expirationTime=`cat $working_path/temp_token.$now | grep exp | cut -d: -f2 | sed 's/,//g'`
+
+#Convert epoch dates to gregorian
+
+generationTime=`date -d "@$generationTime" +"%m-%d-%Y %T %z"`
+expirationTime=`date -d "@$expirationTime" +"%m-%d-%Y %T %z"`
+fingerprint=`cat decoded.$now | grep jti | cut -d: -f2 | sed 's/,//g' | sed 's/\"//g'`
+
+
+echo "Complete Decoded JWT Output"
+cat $working_path/temp_token.$now
+echo ''
+echo 'JWT Creation Date'
+echo $generationTime
+echo ''
+echo 'JWT Expiration Date'
+echo $expirationTime
+
+rm $working_path/temp_token.$now
+
 fi
 exit 0
