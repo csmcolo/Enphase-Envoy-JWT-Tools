@@ -7,19 +7,21 @@ While these scripts are obviously aimed at Linux users there may be information 
 
 I referenced https://enphase.com/download/iq-gateway-access-using-local-apis-or-local-ui-token-based-authentication-tech-brief for the basic steps in requesting a JWT and the API endpoints that are available. That link is current as of June 2024. 
 
-Scripts:
+## Scripts:
 
-1. generate_envoy_token.sh
-   a. Generates a new JWT token for the Envoy and validates it works before rotating the old one out.
-   b. Requires a valid username and password to the enphaseenergy.com site. 
-   c. Lots of fiddly bits here with email notifications etc.
-   d. Assumes you have ssmtp installed to send emails. If you use sendmail modify those commands as needed. 
-2. envoy_curl_queries.sh
-   a. Requires a valid JWT for your Envoy.
-   b. Pulls data from all available local API endpoints
-   c. An example of how to use curl to access each endpoint. Use as few or many as you wish in your scripts.
-3. jwd_decoder.sh
-   a. Simply takes the path to a JWT as an argument and decodes it to human readable form.
-   b. Gives creation and expiration dates in Unix Epoch Time. Use epoch_convert.sh or an online resource to convert to human readable format. 
-4. epoch_convert.sh
-   a. Takes a single argument of a Unix timestamp and converts it to human readable format.
+### generate_envoy_token.sh
+- Generates a new JWT token for the Envoy and validates it works before rotating the old one out.
+- Requires a valid username and password to the enphaseenergy.com site.
+- Lots of fiddly bits here with email notifications etc.
+- Assumes you have ssmtp installed to send emails. If you use sendmail modify those commands as needed. 
+### envoy_curl_queries.sh
+- Requires a valid JWT for your Envoy.
+- Pulls data from all available local API endpoints
+- An example of how to use curl to access each endpoint. Use as few or many as you wish in your scripts.
+### jwd_decoder.sh
+- Simply takes the path to a JWT as an argument and decodes it to human readable form.
+- Gives creation and expiration dates in Unix Epoch Time.
+- Use epoch_convert.sh or an online resource to convert to human readable format. 
+### epoch_convert.sh
+- Takes a single argument of a Unix timestamp and converts it to human readable format.
+- Useful for determining when your JWT will expire
