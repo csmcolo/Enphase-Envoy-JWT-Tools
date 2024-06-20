@@ -11,7 +11,7 @@
 
 #Refer to https://enphase.com/download/iq-gateway-access-using-local-apis-or-local-ui-token-based-authentication-tech-brief
 #for further details. Above link valid as of June of 2024.
-envoy="envoy.little-to-no.org" #either the ip of FQDN of your envoy
+envoy='' #either the ip of FQDN of your envoy
 jwt_location='/home/envoy/bearerTokenCurrent' #absolute path to current envoy access token
 jwt=`cat $jwt_location`
 file=`echo "Authorization: Bearer $jwt" > header`
