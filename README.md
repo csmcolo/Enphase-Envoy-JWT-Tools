@@ -22,8 +22,9 @@ The generate_envoy_token.sh and jwt_decoder.sh scripts require jq to be installe
 - An example of how to use curl to access each endpoint. Use as few or many as you wish in your scripts.
 ### jwd_decoder.sh
 - Simply takes the path to a JWT as an argument and decodes it to human readable form.
-- Gives creation and expiration dates in Unix Epoch Time.
-- Use epoch_convert.sh or an online resource to convert to human readable format. 
+- Displays all the decoded data in JSON format.
+- Shows the envoy serial number, the user name that was used to create it, and the creation and expiration times in Unix Epoch Time. 
+- Also converts the Unix Epoch Time values to Gregoraian. 
 ### epoch_convert.sh
 - Takes a single argument of a Unix timestamp and converts it to human readable format.
 - Useful for determining when your JWT will expire
