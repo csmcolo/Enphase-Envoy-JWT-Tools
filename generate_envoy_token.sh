@@ -23,6 +23,11 @@
 #output along with the JWT created date, expiration date and fingerprint via email so that you can
 #be sure it worked if you are running it via cron. 
 
+###############################################################################
+# Requires jq which can be installed on Ubuntu with sudo apt install jq       #
+# For other systems please refer to https://jqlang.github.io/jq/ for guidance #
+###############################################################################
+
 #VARIABLES
 now=`date +%m-%d-%y-%H_%M_%S`
 working_path='' #path where all the temp files are saved during execution
