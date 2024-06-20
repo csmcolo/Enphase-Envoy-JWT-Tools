@@ -7,6 +7,8 @@ While these scripts are obviously aimed at Linux users, there may be information
 
 I referenced https://enphase.com/download/iq-gateway-access-using-local-apis-or-local-ui-token-based-authentication-tech-brief for the basic steps in requesting a JWT and the API endpoints that are available. That link is current as of June 2024. If you only plan on getting one JWT a year, you are likely better off following the browser based method in that link rather than using the scripts here. 
 
+The generate_envoy_token.sh and jwt_decoder.sh scripts require jq to be installed. For Ubuntu its sudo apt install jq. For other flavors, try your installation tool or refer to https://jqlang.github.io/jq/ for further details. 
+
 ## Scripts:
 
 ### generate_envoy_token.sh
