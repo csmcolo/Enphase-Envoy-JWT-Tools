@@ -11,7 +11,7 @@ The generate_envoy_token.sh and jwt_decoder.sh scripts require jq to be installe
 
 ## Scripts:
 
-### generate_envoy_token.sh
+### envoy_generate_token.sh
 - Generates a new JWT token for the Envoy and validates it works before rotating the old one out.
 - Requires a valid username and password to the enphaseenergy.com site.
 - Lots of fiddly bits here with email notifications etc.
@@ -20,7 +20,7 @@ The generate_envoy_token.sh and jwt_decoder.sh scripts require jq to be installe
 - Requires a valid JWT for your Envoy.
 - Pulls data from all available local API endpoints
 - An example of how to use curl to access each endpoint. Use as few or many as you wish in your scripts.
-### jwd_decoder.sh
+### envoy_jwd_decoder.sh
 - Simply takes the path to a JWT as an argument and decodes it to human readable form.
 - Displays all the decoded data in JSON format.
 - Shows the envoy serial number, the user name that was used to create it, and the creation and expiration times in Unix Epoch Time. 
