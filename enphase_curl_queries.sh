@@ -11,10 +11,20 @@
 
 #Refer to https://enphase.com/download/iq-gateway-access-using-local-apis-or-local-ui-token-based-authentication-tech-brief
 #for further details. Above link valid as of June of 2024.
-envoy='' #either the ip of FQDN of your envoy
+
+
+###############################################
+#                 VARIABLES                   #
+###############################################
+
+envoy='' #either the ip or FQDN of your envoy
 jwt_location='' #path to active envoy access token
+
+# Create header for curl command
 jwt=`cat $jwt_location`
 file=`echo "Authorization: Bearer $jwt" > header`
+
+#Query all API endpoints
 
 echo ivp meters
 curl -s -f -k -H 'Accept: application/json' -H @header -X GET https://$envoy/ivp/meters
