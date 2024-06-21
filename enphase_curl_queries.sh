@@ -13,14 +13,12 @@
 #for further details. Above link valid as of June of 2024.
 
 
-###############################################
-#                 VARIABLES                   #
-###############################################
+#Variables#
 
 envoy='' #either the ip or FQDN of your envoy
 jwt_location='' #path to active envoy access token
 
-# Create header for curl command
+#Create header for curl command#
 jwt=`cat $jwt_location`
 file=`echo "Authorization: Bearer $jwt" > header`
 
