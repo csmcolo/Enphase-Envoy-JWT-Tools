@@ -24,6 +24,3 @@ The generate_envoy_token.sh and jwt_decoder.sh scripts require jq to be installe
 - Simply takes the path to a JWT as an argument and decodes it to human readable form and sends it to standard out.
 - Main items of interest are the envoy serial number, the user name that was used to create it, and the creation and expiration times in Unix Epoch Time. 
 - Script also converts the Unix Epoch Time values to Gregoraian and sends them to standard out. 
-### epoch_convert.sh
-- Takes a single argument of a Unix timestamp and converts it to human readable format.
-- Useful for determining when your JWT will expire
