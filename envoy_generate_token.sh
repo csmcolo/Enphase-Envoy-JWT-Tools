@@ -99,8 +99,8 @@ else
 
 #Rotate JWT files
 
-cp $path/bearerTokenCurrent $path/bearerTokenOld
-cp $path/envoy_token.$now $path/bearerTokenCurrent
+cp $working_path/bearerTokenCurrent $working_path/bearerTokenOld
+cp $working_path/envoy_token.$now $working_path/bearerTokenCurrent
 
 #Set up email to notify of successful token creation
 
